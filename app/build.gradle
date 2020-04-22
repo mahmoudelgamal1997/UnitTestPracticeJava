@@ -49,6 +49,15 @@ dependencies {
     def androidx_arch_test_version = "2.0.1"
     androidTestImplementation "androidx.arch.core:core-testing:$androidx_arch_test_version"
 
+    //material design
+    def material_version = "1.0.0"
+    implementation "com.google.android.material:material:$material_version"
+
+    // Glide
+    def glideVersion = "4.9.0"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
 
     // -------- LOCAL UNIT TESTS (use JUnit5)
     // JUnit Jupiter
@@ -66,22 +75,21 @@ dependencies {
     def dagger_version = "2.22"
 
     // Dagger2 core
-    implementation "com.google.dagger:dagger:$dagger_version"
+    //implementation "com.google.dagger:dagger:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
 
     // Dagger Android
-    implementation "com.google.dagger:dagger-android:$dagger_version"
+    //implementation "com.google.dagger:dagger-android:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
 
-    def material_version = "1.0.0"
-    implementation "com.google.android.material:material:$material_version"
 
     def room_version = "2.1.0-beta01"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     // optional - RxJava support for Room
     implementation "androidx.room:room-rxjava2:$room_version"
+
 
 
     // ViewModel and LiveData
