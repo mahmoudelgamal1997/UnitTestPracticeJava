@@ -1,22 +1,22 @@
 package com.example.unittestpracticejava;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.widget.ImageView;
-import com.bumptech.glide.RequestManager;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.unittestpracticejava.dagg.CoffeComponent;
+import com.example.unittestpracticejava.dagg.Coffee;
+import com.example.unittestpracticejava.dagg.DaggerAppComponent;
+import com.example.unittestpracticejava.dagg.DaggerCoffeComponent;
 import com.example.unittestpracticejava.ui.auth.MainViewModel;
-import com.example.unittestpracticejava.viewmodels.ViewModelProviderFactory;
 
 import javax.inject.Inject;
 import dagger.android.support.DaggerAppCompatActivity;
 
-public class MainActivity extends DaggerAppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-    private MainViewModel mainViewModel;
+   /*
     @Inject
     ViewModelProviderFactory providerFactory;
 
@@ -26,20 +26,30 @@ public class MainActivity extends DaggerAppCompatActivity {
 
     @Inject
     Drawable logo;
+    */
+   @Inject
+   Coffee coffee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        CoffeComponent component= DaggerCoffeComponent.create();
+        component.inject(this);
+        Log.e("Mahmoudelgaml",coffee.getCofeeCup());
 
-        mainViewModel= ViewModelProviders.of(this,providerFactory).get(MainViewModel.class);
+//        mainViewModel= ViewModelProviders.of(this,providerFactory).get(MainViewModel.class);
 
-        setImage();
+      //  CoffeComponent coffeMaker= DaggerAppComponent.builder().
+
+
+
+     //   setImage();
 
     }
 
 
     public void setImage(){
-        requestManager.load(logo).into((ImageView)findViewById(R.id.login_logo));
+  //      requestManager.load(logo).into((ImageView)findViewById(R.id.login_logo));
     }
 }

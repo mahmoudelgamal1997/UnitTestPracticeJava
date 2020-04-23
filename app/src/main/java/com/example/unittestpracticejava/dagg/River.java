@@ -6,10 +6,11 @@ import javax.inject.Inject;
 
 import dagger.Provides;
 
+
 public class River {
 
-
-    public River() {
+    public River()
+    {
         Log.e("mahmoud","River");
     }
 
