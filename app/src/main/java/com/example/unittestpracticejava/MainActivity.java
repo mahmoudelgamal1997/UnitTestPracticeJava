@@ -8,7 +8,6 @@ import com.example.unittestpracticejava.dagg.AppComponent;
 import com.example.unittestpracticejava.dagg.BaseApplication;
 import com.example.unittestpracticejava.dagg.CoffeComponent;
 import com.example.unittestpracticejava.dagg.Coffee;
-import com.example.unittestpracticejava.dagg.DaggerCoffeComponent;
 
 import javax.inject.Inject;
 
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         AppComponent component =((BaseApplication)getApplication()).getAppComponent();
 
 
-        CoffeComponent coffeComponent = DaggerCoffeComponent.builder().Sugar(2).milk(3).appComponent(component).Build();
+        CoffeComponent coffeComponent = component.getCoffeeComponentBuilder().Sugar(2).milk(3).Build();
         coffeComponent.inject(this);
 
         Log.e("Mahmoudelgaml",coffee.river+"...."+coffee2.river);
