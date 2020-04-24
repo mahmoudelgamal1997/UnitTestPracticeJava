@@ -3,9 +3,13 @@ package com.example.unittestpracticejava;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.unittestpracticejava.dagg.AppComponent;
 import com.example.unittestpracticejava.dagg.BaseApplication;
 import com.example.unittestpracticejava.dagg.CoffeComponent;
 import com.example.unittestpracticejava.dagg.Coffee;
+import com.example.unittestpracticejava.dagg.DaggerCoffeComponent;
+
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,11 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CoffeComponent component =((BaseApplication)getApplication()).getCoffeComponent();
+        AppComponent component =((BaseApplication)getApplication()).getAppComponent();
 
-        component.inject(this);
+
+        CoffeComponent coffeComponent = DaggerCoffeComponent.builder().Sugar(2).milk(3).appComponent(component).Build();
+        coffeComponent.inject(this);
+
         Log.e("Mahmoudelgaml",coffee.river+"...."+coffee2.river);
-
+        Log.e("Mahmoudelgaml",coffee+"...."+coffee2);
 
 
 

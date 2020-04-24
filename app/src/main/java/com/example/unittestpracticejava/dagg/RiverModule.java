@@ -6,7 +6,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class CoffeeModule {
+public class RiverModule {
 
     @Singleton
     @Provides
